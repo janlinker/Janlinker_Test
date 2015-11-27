@@ -6,6 +6,7 @@ sys.path.append("../Lib")
 sys.path.append('../GlobalInfo')
 import Common,GlobalInfo,configrw,loglib,maillib
 import mailinfo as m
+import time
 
 def testa():
     GlobalFile= os.getcwd().replace('Scripts','GlobalInfo')+'\\GlobalInfo.py'
