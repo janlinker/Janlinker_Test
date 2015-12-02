@@ -59,6 +59,12 @@ def updateGlobal(fname,LogFile='',ReportFile='',TestLevel=['level 1','level 2','
             tstr=i[0]+'='+'\''+i[1]+'\''+'\n'   
             f.write(tstr)
 
+def checkArgs(length,*args):
+    if len(args) != length:
+        print 'len args:',len(args)
+        return 0
+    return 1
+
 def setTcStatus(tcno,status):
     if status==0:
         result='FAILED'

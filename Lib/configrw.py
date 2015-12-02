@@ -2,11 +2,11 @@
 __author__ = 'Ban'
 
 import ConfigParser
-
+import os
 
 def readcfg(cfg,opt='testcase'):
     list1=[]
-    cfg=''.join([cfg[:-2],'cfg'])
+    cfg=''.join([os.path.splitext(cfg)[0],'.cfg'])
     config=ConfigParser.ConfigParser()
     with open(cfg,"r") as cfgfile:
         config.readfp(cfgfile)
