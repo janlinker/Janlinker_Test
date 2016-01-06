@@ -16,11 +16,15 @@ class TestLogin(TestBasicFunction):
 
     def setUp(self):
         self.testcases = conf.readcfg(__file__)
-        #self.driver = webdriver.Remote('http://localhost:4723/wd/hub', self.desired_caps)
+        self.driver = webdriver.Remote('http://localhost:4723/wd/hub', self.desired_caps)
         sleep(5)
 
     def tearDown(self):
         print 'test end...'
+        try:
+            self.driver.quit()
+        except Exception as e:
+            print 'tearDown:',e
 
     #TestCase Logic
     def caseLogic(self,*args):
@@ -32,11 +36,13 @@ class TestLogin(TestBasicFunction):
             return 0
         username,password,sn = args
         #case logic
-
+        login_result = al.login_to_page(self.driver,username,password,sn)
+        log.WritetoLog(self.log_file,'Login_result:'+str(login_result))
+        assert login_result == 1
         return 1
 
     #excute TestCase
-    def TestFunc1(self):
+    def testFunc1(self):
         for case in self.testcases:
             TcStatus=-1
             try:
@@ -57,5 +63,4 @@ class TestLogin(TestBasicFunction):
                 log.WritetoLog(self.log_file,msg)
 
 if __name__ == '__main__':
-    a= TestA()
-    print a.log_file
+    pass

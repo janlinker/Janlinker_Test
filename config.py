@@ -14,16 +14,19 @@ class Config(object):
         self.log_file = basdir+'\\Log\\Log_'+time.strftime("%Y%m%d%H%M%S", time.localtime())+'.log'
         self.report_file =basdir+'\\Report\\Report.xlsx'
         self.test_level = ['level 1','level 2','level 3','level 4','level 5']
+        self.username = 'zzh'
+        self.password = '123456'
+        self.sn = '01379426'
         self.desired_caps = {}
         self.desired_caps['platformName'] = 'Android'
         self.desired_caps['platformVersion'] = '4.4.2'
         self.desired_caps['deviceName'] = 'Nexus_7_2012_API_19'
-        #self.desired_caps['appPackage'] = 'com.jlkj.janlinker'
-        #self.desired_caps['appActivity'] = 'com.jlkj.janlinker/com.jlkj.janlinker.ui.SplashActivity'
+        self.desired_caps['appPackage'] = 'com.jlkj.janlinker'
+        self.desired_caps['appActivity'] = '.ui.SplashActivity'
         PATH=lambda p:os.path.abspath(
         os.path.join(os.path.dirname(__file__),p)
         )
-        self.desired_caps['app'] = PATH('C:\\Users\\Administrator\\Desktop\\Janlinker.apk')#被测试的App在电脑上的位置
+        #self.desired_caps['app'] = PATH('C:\\Users\\Administrator\\Desktop\\Janlinker.apk')#被测试的App在电脑上的位置
 
     def gen_file(self,fn):
         if not os.path.exists(fn):
