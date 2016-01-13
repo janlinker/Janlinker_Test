@@ -82,6 +82,7 @@ class TestArea(TestBasicFunction):
                 except:
                     pass
             return self.result
+
     #excute TestCase
     def testFunc1(self):
         for case in self.testcases:
